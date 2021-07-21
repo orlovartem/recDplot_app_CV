@@ -1,0 +1,13 @@
+name: recDplot_app_CV
+title: recDplot_app_CV
+username:
+account: orlovartem
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4407558
+bundleId: 4842282
+url: https://orlovartem.shinyapps.io/recDplot_app_CV/
+when: 1626884113.09536
+lastSyncTime: 1626884113.09536
+asMultiple: FALSE
+asStatic: FALSE

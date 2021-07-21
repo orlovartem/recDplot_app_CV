@@ -4,7 +4,7 @@ ui <- navbarPage(
          theme = "styles.css",
 
 #------------------FIGURES FROM PAPER TAB
-        tabPanel("Figures from paper",
+        tabPanel("Figures",
                  
                  tags$head(tags$script(HTML("$(document).on('click', '.fig_button', function (e) {
                                 e.stopPropagation()
@@ -21,21 +21,21 @@ ui <- navbarPage(
                      h4("Click the figures below to reproduce the plots. Select the dots on the distance plot to show the virus pairs that correspond to them."),
                      fluidRow(
                        h5("Sapovirus"),
-                       actionButton(inputId = "SaV-NS_NS-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
-                       actionButton(inputId = "SaV-NS_VP12-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
-                       actionButton(inputId = "SaV-VP1_VP2-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
-                       ),
+                       actionButton(inputId = "SaV-NSNS-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/SaV_NS-NS.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "SaV-NSVP12-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/SaV_NS-VP12.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "SaV-VP1VP2-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/SaV_VP1-VP2.png');  background-size: cover; background-position: center;"),
+                     ),
                      fluidRow(
                        h5("Norovirus"),
-                       actionButton(inputId = "NoV-NS_NS-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
-                       actionButton(inputId = "NoV-NS_VP12-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
-                       actionButton(inputId = "NoV-VP1_VP2-button", label = NULL, class="fig-button", style = "width: 140px; height: 110px;
-                            background: url('img/1.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "NoV-NSNS-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV_NS-NS.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "NoV-NSVP12-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV_NS-VP12.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "NoV-VP1VP2-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV_VP1-VP2.png');  background-size: cover; background-position: center;"),
                        
                      ),
                       

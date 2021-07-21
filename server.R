@@ -15,7 +15,8 @@ server <- function(input, output) {
   observeEvent(input$js.button_clicked, {
     
     uid = strsplit(input$js.button_clicked, "_")
-    #print(uid)
+    print(input$js.button_clicked)
+    print(uid)
     button = uid[[1]][1]
     chs = strsplit(button, "-")
     print(chs)
@@ -24,21 +25,21 @@ server <- function(input, output) {
     print(genus)
     if (genus == "SaV"){
       aln_fig = read.dna(as.character("data/sapovirus.fasta"), format="fasta", as.character=TRUE)
-      if (region == "NS_NS"){
+      if (region == "NSNS"){
         f = 3
         min1 = 1
         max1 = 2500
         min2 = 2501
         max2 = 5091
       }
-      else if (region == "NS_VP12"){
+      else if (region == "NSVP12"){
         f = 3
         min1 = 1
         max1 = 5091
         min2 = 5092
         max2 = 7191
       }
-      else if (region == "VP1_VP2"){
+      else if (region == "VP1VP2"){
         f = 3
         min1 = 5092
         max1 = 6711
@@ -48,26 +49,26 @@ server <- function(input, output) {
     }
     else if (genus == "NoV"){
       aln_fig = read.dna(as.character("data/norovirus.fasta"), format="fasta", as.character=TRUE)
-      if (region == "NS_NS"){
+      if (region == "NSNS"){
         f = 3
         min1 = 1
-        max1 = 11484
-        min2 = 11485
-        max2 = 19398
+        max1 = 2541
+        min2 = 2542
+        max2 = 5082
       }
-      else if (region == "NS_VP12"){
+      else if (region == "NSVP12"){
         f = 3
         min1 = 1
-        max1 = 19398
-        min2 = 19399
-        max2 = 22746
+        max1 = 5082
+        min2 = 5083
+        max2 = 7431
       }
-      else if (region == "VP1_VP2"){
+      else if (region == "VP1VP2"){
         f = 3
-        min1 = 19468
-        max1 = 21060
-        min2 = 21061
-        max2 = 22743
+        min1 = 5083
+        max1 = 6687
+        min2 = 6688
+        max2 = 7431
       }
     }
     aln_fig[aln_fig=='-'] <- NA
@@ -111,74 +112,6 @@ server <- function(input, output) {
         incProgress(0.2, detail = "Creating plots")
       })
       
-    }
-    if (f==4){
-      withProgress(message = 'Creating distance plots', value = 0, {
-      
-        aln_control =  cbind(aln_fig[,min1:max1], aln_fig[,min2:max2])
-        output$fig4_control <- renderPlot({
-          plot_control(aln_control)
-        })
-        incProgress(0.4, detail = "Control plot finished")
-        Sys.sleep(0.5)
-        
-        l_fig = plot_dist_test(aln_fig, min1,max1,min2,max2)
-        df = l_fig[[2]]
-        incProgress(0.4, detail = "Distance plot finished")
-        Sys.sleep(0.5)
-        
-        output$fig4_plot <- renderPlot(l_fig[[1]])
-        observeEvent(input$fig4_brush, {
-          brushed_points4 <- brushedPoints(df, input$fig4_brush)
-          min_1 = input$fig4_brush$xmin
-          max_1 = input$fig4_brush$xmax
-          
-          min_2 = input$fig4_brush$ymin
-          max_2 = input$fig4_brush$ymax
-          output$min_max <- DT::renderDataTable(brushed_points4)
-          
-          output$fig4_brush_info <- DT::renderDataTable({
-            find_recomb_names(l_fig[[3]], min_1, max_1, l_fig[[4]], min_2, max_2)
-          }, extensions = 'Buttons',
-          options = list(pageLength = 20, dom = 'Blfrtip', buttons = c('copy', 'csv'))
-          )
-        })
-        incProgress(0.2, detail = "Creating plots")
-      })
-    }
-    if (f==5){
-      withProgress(message = 'Creating distance plots', value = 0, {
-        
-        aln_control =  cbind(aln_fig[,min1:max1], aln_fig[,min2:max2])
-        output$fig5_control <- renderPlot({
-          plot_control(aln_control)
-        })
-        incProgress(0.4, detail = "Control plot finished")
-        Sys.sleep(0.5)
-        
-        l_fig = plot_dist_test(aln_fig, min1,max1,min2,max2)
-        df = l_fig[[2]]
-        incProgress(0.4, detail = "Distance plot finished")
-        Sys.sleep(0.5)
-        
-        output$fig5_plot <- renderPlot(l_fig[[1]])
-        observeEvent(input$fig5_brush, {
-          brushed_points5 <- brushedPoints(df, input$fig5_brush)
-          min_1 = input$fig5_brush$xmin
-          max_1 = input$fig5_brush$xmax
-          
-          min_2 = input$fig5_brush$ymin
-          max_2 = input$fig5_brush$ymax
-          output$min_max <- DT::renderDataTable(brushed_points5)
-          
-          output$fig5_brush_info <- DT::renderDataTable({
-            find_recomb_names(l_fig[[3]], min_1, max_1, l_fig[[4]], min_2, max_2)
-          }, extensions = 'Buttons',
-          options = list(pageLength = 20, dom = 'Blfrtip', buttons = c('copy', 'csv'))
-          )
-        })
-        incProgress(0.2, detail = "Creating plots")
-      })
     }
   }
   )
