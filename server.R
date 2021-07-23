@@ -71,6 +71,30 @@ server <- function(input, output) {
         max2 = 7431
       }
     }
+    else if (genus == "NoVg2less"){
+      aln_fig = read.dna(as.character("data/norovirus_g2less.fasta"), format="fasta", as.character=TRUE)
+      if (region == "NSNS"){
+        f = 3
+        min1 = 1
+        max1 = 2541
+        min2 = 2542
+        max2 = 5082
+      }
+      else if (region == "NSVP12"){
+        f = 3
+        min1 = 1
+        max1 = 5082
+        min2 = 5083
+        max2 = 7431
+      }
+      else if (region == "VP1VP2"){
+        f = 3
+        min1 = 5083
+        max1 = 6687
+        min2 = 6688
+        max2 = 7431
+      }
+    }
     aln_fig[aln_fig=='-'] <- NA
 
     #l_fig = plot_dist_test(aln_fig, min1,max1,min2,max2)

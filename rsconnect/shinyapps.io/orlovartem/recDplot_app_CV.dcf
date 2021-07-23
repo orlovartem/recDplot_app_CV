@@ -5,9 +5,9 @@ account: orlovartem
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4407558
-bundleId: 4842282
+bundleId: 4846787
 url: https://orlovartem.shinyapps.io/recDplot_app_CV/
-when: 1626884113.09536
-lastSyncTime: 1626884113.09536
+when: 1626983894.48564
+lastSyncTime: 1626983894.48564
 asMultiple: FALSE
 asStatic: FALSE

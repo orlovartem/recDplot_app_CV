@@ -36,9 +36,17 @@ ui <- navbarPage(
                             background: url('img/NoV_NS-VP12.png');  background-size: cover; background-position: center;"),
                        actionButton(inputId = "NoV-VP1VP2-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
                             background: url('img/NoV_VP1-VP2.png');  background-size: cover; background-position: center;"),
+                     ),
+                     fluidRow(
+                       h5("Norovirus without GII"),
+                       actionButton(inputId = "NoVg2less-NSNS-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV-g2less_NS-NS.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "NoVg2less-NSVP12-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV-g2less_NS-VP12.png');  background-size: cover; background-position: center;"),
+                       actionButton(inputId = "NoVg2less-VP1VP2-button", label = NULL, class="fig_button", style = "width: 140px; height: 110px;
+                            background: url('img/NoV-g2less_VP1-VP2.png');  background-size: cover; background-position: center;"),
                        
                      ),
-                      
                    ),
                    mainPanel(
                      width = 6,
